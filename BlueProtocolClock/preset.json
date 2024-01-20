@@ -1,0 +1,188 @@
+{
+  "preset_info": {
+    "version": 13,
+    "title": "BlueProtocolClock",
+    "description": "",
+    "author": "Nal",
+    "email": "be.path@gmail.com",
+    "width": 273,
+    "height": 326,
+    "features": "",
+    "release": 374331712,
+    "locked": false,
+    "pflags": 0
+  },
+  "preset_root": {
+    "internal_events": [
+      {
+        "action": "KUSTOM_ACTION"
+      }
+    ],
+    "internal_type": "RootLayerModule",
+    "globals_list": {
+      "wwidth": {
+        "index": 1,
+        "type": "TEXT",
+        "title": "wwidth",
+        "value": "$mu(min, si(rwidth), si(rheight))$"
+      },
+      "cmain": {
+        "index": 4,
+        "type": "COLOR",
+        "title": "cmain",
+        "value": "#FFA7FF00"
+      },
+      "cback": {
+        "index": 5,
+        "type": "COLOR",
+        "title": "cback",
+        "value": "#FF383838"
+      },
+      "cfront": {
+        "index": 6,
+        "type": "COLOR",
+        "title": "cfront",
+        "value": "#FFFFFFFF"
+      },
+      "r1": {
+        "index": 7,
+        "type": "NUMBER",
+        "title": "r1",
+        "min": 0,
+        "max": 100,
+        "value": 96.0
+      },
+      "r2": {
+        "index": 8,
+        "type": "NUMBER",
+        "title": "r2",
+        "min": 0,
+        "max": 100,
+        "value": 72.0
+      },
+      "rt": {
+        "index": 9,
+        "type": "NUMBER",
+        "title": "rt",
+        "min": 0,
+        "max": 100,
+        "value": 45.0
+      }
+    },
+    "viewgroup_items": [
+      {
+        "internal_type": "ShapeModule",
+        "internal_title": "外ボーダー",
+        "internal_toggles": {
+          "shape_width": 10,
+          "paint_color": 100
+        },
+        "internal_formulas": {
+          "shape_width": "$gv(wwidth)$"
+        },
+        "internal_globals": {
+          "paint_color": "cfront"
+        },
+        "shape_type": "CIRCLE",
+        "shape_width": 200.0
+      },
+      {
+        "internal_type": "ShapeModule",
+        "internal_toggles": {
+          "shape_width": 10,
+          "fx_gradient_offset": 10,
+          "paint_color": 100,
+          "fx_gradient_color": 100
+        },
+        "internal_formulas": {
+          "shape_width": "$gv(wwidth) * gv(r1)/100$",
+          "fx_gradient_offset": "$df(mm)/60*100$"
+        },
+        "shape_type": "CIRCLE",
+        "shape_width": 200.0,
+        "paint_color": "#FF4EFF00",
+        "internal_title": "メイン扇",
+        "internal_globals": {
+          "paint_color": "cmain",
+          "fx_gradient_color": "cback"
+        },
+        "shape_rotate_mode": "DEG180",
+        "fx_gradient": "SWEEP",
+        "fx_gradient_color": "#FF383838",
+        "fx_gradient_width": 1
+      },
+      {
+        "internal_type": "ShapeModule",
+        "internal_toggles": {
+          "shape_width": 10,
+          "paint_color": 100
+        },
+        "internal_formulas": {
+          "shape_width": "$gv(wwidth) * gv(r2)/100$"
+        },
+        "shape_type": "CIRCLE",
+        "shape_width": 200.0,
+        "internal_globals": {
+          "paint_color": "cfront"
+        },
+        "paint_color": "#FF383838",
+        "internal_title": "中央"
+      },
+      {
+        "internal_type": "ShapeModule",
+        "internal_toggles": {
+          "shape_width": 10,
+          "paint_color": 100,
+          "paint_stroke": 10
+        },
+        "internal_formulas": {
+          "shape_width": "$gv(wwidth) * gv(r1)/100$",
+          "paint_stroke": "$gv(wwidth) * 0.01$"
+        },
+        "shape_type": "CIRCLE",
+        "shape_width": 200.0,
+        "internal_title": "外隙間",
+        "internal_globals": {
+          "paint_color": "cback"
+        },
+        "paint_color": "#FF383838",
+        "paint_style": "STROKE"
+      },
+      {
+        "internal_type": "ShapeModule",
+        "internal_toggles": {
+          "shape_width": 10,
+          "paint_color": 100,
+          "paint_stroke": 10
+        },
+        "internal_formulas": {
+          "shape_width": "$gv(wwidth) * gv(r2)/100$",
+          "paint_stroke": "$gv(wwidth) * 0.015$"
+        },
+        "shape_type": "CIRCLE",
+        "shape_width": 200.0,
+        "internal_globals": {
+          "paint_color": "cback"
+        },
+        "paint_color": "#FF383838",
+        "internal_title": "内隙間",
+        "paint_style": "STROKE"
+      },
+      {
+        "internal_type": "TextModule",
+        "internal_toggles": {
+          "paint_color": 100,
+          "text_size": 10
+        },
+        "internal_formulas": {
+          "text_size": "$gv(wwidth) * gv(rt)/100$"
+        },
+        "internal_globals": {
+          "paint_color": "cback"
+        },
+        "text_expression": "$df(h)$",
+        "text_family": "kfile://org.kustom.provider/fonts/BPLikeFontNalNum.otf"
+      }
+    ]
+  }
+}
